@@ -1,4 +1,6 @@
+title: PCS
+description: Control Spotify using your keyboard!
+show_downloads: true
+github:
+  zip_url: https://github.com/UranusDarkness/PCS/releases/latest/download/PCSInstaller.msi
 theme: jekyll-theme-cayman
-title: [PCS]
-description: [Control Spotify using your keyboard!]
-show_downloads: [true]
