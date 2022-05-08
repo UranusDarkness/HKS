@@ -1,5 +1,6 @@
 ---
 title: PCS
+description: Control Spotify with your keyboard!
 ---
 
 ## Welcome to GitHub Pages
