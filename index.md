@@ -38,6 +38,7 @@ For more details see [Basic writing and formatting syntax](https://docs.github.c
 Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/UranusDarkness/PCS/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ```html
+
 <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
 <script>
 PayPal.Donation.Button({
@@ -49,7 +50,8 @@ alt:'Donate with PayPal button',
 title:'PayPal - The safer, easier way to pay online!',
 }
 }).render('#donate-button');
-</script>```
+</script>
+```
 
 ### Support or Contact
 
