@@ -3,42 +3,34 @@ title: PCS
 description: Control Spotify with your keyboard!
 ---
 
-## Welcome to GitHub Pages
+## What is PCS?
 
-You can use the [editor on GitHub](https://github.com/UranusDarkness/PCS/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+PCS is an application that allows you to control Spotify using your keyboard, by adding hotkeys for media actions. You can check the [source code on GitHub](https://github.com/UranusDarkness/PCS/)
+Placeholder for pictures
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Features
 
-### Markdown
+- Hotkeys to control Spotify (Volume Down/Up, Pause/Play, Previous/Next Track)
+- Auto Update
+- Compatible with Spotify Desktop/Microsoft Store/Browser
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Requirements
 
-```markdown
-Syntax highlighted code blo
+- Spotify
+- Windows (7, 8, 10, 11)
+- .NET Framework 4.5+ (**Note**: it will be installed by running PCS' setup)
 
-# Header 1
-## Header 2
-### Header 3
+## Installation
+- Download the latest release of PCS from [here](https://github.com/UranusDarkness/PCS/releases/latest/download/PCSInstaller.msi)
+- Run "_PCSInstaller.msi_" to install PCS
 
-- Bulleted
-- List
+## Support
+If you want to request new features or report a bug, please open an issue [on the GitHub page](https://github.com/UranusDarkness/PCS/issues) with the appropriate label.
 
-1. Numbered
-2. List
+## Credits
+- [JohnnyCrazy](https://github.com/JohnnyCrazy) for making [SpotifyAPI-NET](https://github.com/JohnnyCrazy/SpotifyAPI-NET)
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/UranusDarkness/PCS/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
+## Donations
+To create a reliable application, we have to dedicate a lot of our free time on this project. If you want to support us, feel free to do so by donating using the "donate" button! Thank you so much! 
 {% include paypal-button.html %}
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
