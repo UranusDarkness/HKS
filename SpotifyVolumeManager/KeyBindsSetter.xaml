@@ -1,0 +1,57 @@
+﻿<Window x:Class="SpotifyVolumeManager.KeyBindsSetter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SpotifyVolumeManager"
+        mc:Ignorable="d"
+        Name="keybindsWindow"
+        Loaded="keybindsWindow_Loaded"
+        Title="Keybinds" Height="350" Width="250"
+        WindowStartupLocation="CenterScreen">
+    <Grid Name="myGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="0" Name="volumeUpLabel"></Label>
+        <Label Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" Name="volumeDownLabel"></Label>
+        
+        <TextBox Grid.Column="2" Grid.Row="1" Name="volumeUpTextBox" PreviewKeyDown="volumeUpTextBox_PreviewKeyDown">
+            
+        </TextBox>
+
+        <TextBox Grid.Column="2" Grid.Row="3" Name="volumeDownTextBox" PreviewKeyDown="volumeDownTextBox_PreviewKeyDown">
+
+        </TextBox>
+
+        <Button Grid.Column="1" Grid.Row="5" Content="Ok" Name="okButton" Click="okButton_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Grid.Column="3" Grid.Row="5" Content="Cancel" Name="cancelButton" Click="cancelButton_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>
