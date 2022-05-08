@@ -1,6 +1,5 @@
 ---
 title: PCS
-title-heading: PCS
 ---
 
 ## Welcome to GitHub Pages
@@ -39,6 +38,8 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 
 ```html
 
+<div id="donate-button-container">
+<div id="donate-button"></div>
 <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
 <script>
 PayPal.Donation.Button({
@@ -51,6 +52,7 @@ title:'PayPal - The safer, easier way to pay online!',
 }
 }).render('#donate-button');
 </script>
+</div>
 ```
 
 ### Support or Contact
