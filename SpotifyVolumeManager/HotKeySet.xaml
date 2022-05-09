@@ -74,10 +74,10 @@
                             </Style>
                         </ListBox.ItemContainerStyle>
 
-                        <ListBoxItem Content="HotKeys"/>
-                        <ListBoxItem Content="Updates"/>
-                        <ListBoxItem Content="Settings"/>
-                        <ListBoxItem Content="Info"/>
+                        <ListBoxItem Content="HotKeys" Name="hotKeysListBoxItem" Selected="hotKeysListBoxItem_Selected"/>
+                        <ListBoxItem Content="Updates" Name="updatesListBoxItem" Selected="updatesListBoxItem_Selected"/>
+                        <ListBoxItem Content="Settings" Name="settingsListBoxItem" Selected="settingsListBoxItem_Selected"/>
+                        <ListBoxItem Content="Info" Name="infoListBoxItem" Selected="infoListBoxItem_Selected"/>
 
                     </ListBox>
 

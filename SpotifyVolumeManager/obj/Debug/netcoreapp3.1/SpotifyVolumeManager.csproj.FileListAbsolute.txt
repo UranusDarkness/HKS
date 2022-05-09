@@ -69,3 +69,5 @@ D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\net
 D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\SpotifyVolumeManager.csproj.CoreCompileInputs.cache
 D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\SpotifyVolumeManager.csproj.CopyComplete
 D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\SpotifyVolumeManager.genruntimeconfig.cache
+D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\Resources\UserControls\HotKeysUserControl.g.cs
+D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\Resources\UserControls\HotKeysUserControl.baml

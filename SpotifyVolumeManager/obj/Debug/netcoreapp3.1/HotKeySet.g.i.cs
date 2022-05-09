@@ -97,7 +97,7 @@ namespace SpotifyVolumeManager {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SpotifyVolumeManager;V1.0.0.0;component/hotkeyset.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SpotifyVolumeManager;component/hotkeyset.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\HotKeySet.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

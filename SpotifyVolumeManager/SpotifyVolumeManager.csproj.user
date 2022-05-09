@@ -13,12 +13,18 @@
     <Compile Update="KeyBindsSetter.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Resources\UserControls\HotKeysUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="HotKeySet.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="KeyBindsSetter.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\UserControls\HotKeysUserControl.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

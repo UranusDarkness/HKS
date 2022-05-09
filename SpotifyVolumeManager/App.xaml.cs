@@ -151,7 +151,6 @@ namespace SpotifyVolumeManager
                 if(newvol <= 95)
                     newvol += 5;
                 spotify.Player.SetVolume(new PlayerVolumeRequest(newvol));
-                //do code for volume up
             }
             else
             {
@@ -160,7 +159,6 @@ namespace SpotifyVolumeManager
                 if(newvol >= 5)
                     newvol -= 5;
                 spotify.Player.SetVolume(new PlayerVolumeRequest(newvol));
-                //do code for volume down
             }
         }
         protected override void OnStartup(StartupEventArgs e)
@@ -171,9 +169,8 @@ namespace SpotifyVolumeManager
             _notifyIcon.Text = "Spotify Volume Manager";
 
             _notifyIcon.ContextMenuStrip = new Forms.ContextMenuStrip();
-            _notifyIcon.ContextMenuStrip.Items.Add("Version", null, OnVersionClicked);
             _notifyIcon.ContextMenuStrip.Items.Add("Login", null, OnLoginClicked);
-            _notifyIcon.ContextMenuStrip.Items.Add("Set Keybinds", null, OnKeybindsClicked);
+            _notifyIcon.ContextMenuStrip.Items.Add("Settings", null, OnKeybindsClicked);
             _notifyIcon.ContextMenuStrip.Items.Add("Exit", null, OnExitClicked);
             _notifyIcon.Visible = true;
 
@@ -228,12 +225,6 @@ namespace SpotifyVolumeManager
 
 
 
-
-
-
-
-
-
         private void OnKeybindsClicked(object sender, EventArgs e)
         {
             /*KeyBindsSetter keyBindsSetter = new KeyBindsSetter(this, volume_down_id, volume_up_id);
@@ -252,10 +243,6 @@ namespace SpotifyVolumeManager
         {
             _notifyIcon.Dispose();
             base.OnExit(e);
-        }
-        private void OnVersionClicked(object sender, EventArgs e)
-        {
-            MessageBox.Show("Version 1.0.0\n\nMade by UranusDarkness and Fil0807", "Version", MessageBoxButton.OK, MessageBoxImage.Information);
         }
        
     }
