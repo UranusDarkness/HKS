@@ -121,7 +121,7 @@ namespace SpotifyVolumeManager {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/SpotifyVolumeManager;component/keybindssetter.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/SpotifyVolumeManager;V1.0.0.0;component/keybindssetter.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\KeyBindsSetter.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
