@@ -3,7 +3,7 @@
 
 ## What is HKS?
 * * *
-HKS is an application that allows you to control Spotify using your keyboard, by adding hotkeys for media actions. You can check the [source code on GitHub](https://github.com/UranusDarkness/PCS/)
+HKS is an application that allows you to control Spotify using your keyboard, by adding hotkeys for media actions. You can check the [source code on GitHub](https://github.com/UranusDarkness/HKS/)
 Placeholder for pictures
 
 ## Features
@@ -16,7 +16,7 @@ Placeholder for pictures
 * * *
 - Spotify
 - Windows (7, 8, 10, 11)
-- .NET Framework 4.5+ (**Note**: it will be installed by running PCS' setup)
+- .NET Framework 4.5+ (**Note**: it will be installed by running HKS' setup)
 
 ## Installation
 * * *
