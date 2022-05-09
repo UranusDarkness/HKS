@@ -31,8 +31,4 @@ If you want to request new features or report a bug, please open an issue [on th
 * * *
 - [JohnnyCrazy](https://github.com/JohnnyCrazy) for making [SpotifyAPI-NET](https://github.com/JohnnyCrazy/SpotifyAPI-NET)
 
-## Donations
-* * *
-In order to create a reliable application, we have to dedicate a lot of our free time on this project. If you want to support us, feel free to do so by donating using the "donate" button! Thank you so much! 
-{% include paypal-button.html %}
 
