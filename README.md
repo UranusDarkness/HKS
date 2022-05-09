@@ -1,9 +1,9 @@
-# PCS
+# HKS
 * * *
 
-## What is PCS?
+## What is HKS?
 * * *
-PCS is an application that allows you to control Spotify using your keyboard, by adding hotkeys for media actions. You can check the [source code on GitHub](https://github.com/UranusDarkness/PCS/)
+HKS is an application that allows you to control Spotify using your keyboard, by adding hotkeys for media actions. You can check the [source code on GitHub](https://github.com/UranusDarkness/PCS/)
 Placeholder for pictures
 
 ## Features
@@ -20,12 +20,12 @@ Placeholder for pictures
 
 ## Installation
 * * *
-- Download the latest release of PCS from [here](https://github.com/UranusDarkness/PCS/releases/latest/download/PCSInstaller.msi)
-- Run "_PCSInstaller.msi_" to install PCS
+- Download the latest release of HKS from [here](https://github.com/UranusDarkness/HKS/releases/latest/download/HKSInstaller.msi)
+- Run "_HKSInstaller.msi_" to install HKS
 
 ## Support
 * * *
-If you want to request new features or report a bug, please open an issue [on the GitHub page](https://github.com/UranusDarkness/PCS/issues) with the appropriate label.
+If you want to request new features or report a bug, please open an issue [on the GitHub page](https://github.com/UranusDarkness/HKS/issues) with the appropriate label.
 
 ## Credits
 * * *
