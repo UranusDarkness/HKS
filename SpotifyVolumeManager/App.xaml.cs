@@ -236,8 +236,10 @@ namespace SpotifyVolumeManager
 
         private void OnKeybindsClicked(object sender, EventArgs e)
         {
-            KeyBindsSetter keyBindsSetter = new KeyBindsSetter(this, volume_down_id, volume_up_id);
-            keyBindsSetter.Show();
+            /*KeyBindsSetter keyBindsSetter = new KeyBindsSetter(this, volume_down_id, volume_up_id);
+            keyBindsSetter.Show();*/
+            HotKeySet hotKeySet = new HotKeySet();
+            hotKeySet.Show();
         }
 
         private void OnExitClicked(object sender, EventArgs e)

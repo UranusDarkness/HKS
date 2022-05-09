@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "JeqWEHHbiQiI7+Txm/OJRBTvPYLkwKtoOa6+1eB0SbfvYaNI26vtf1srZZdvGef0Xi5uR7u7SCq3jRnedWFAbA==",
+  "dgSpecHash": "1m7lc5MgiqgfRJrqvc/pUKYG/P2fwH9TrhAJ4DyZsQhpF/A05UEQJTgJ4rfRz24peerrX1aBAtHzVVATELITRQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\UranusDarkness\\source\\repos\\SpotifyVolumeManager\\SpotifyVolumeManager\\SpotifyVolumeManager.csproj",
+  "projectFilePath": "D:\\Utenti\\UranusDarkness\\Documenti\\GitHub\\PCS\\SpotifyVolumeManager\\SpotifyVolumeManager.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\UranusDarkness\\.nuget\\packages\\adonisui\\1.17.1\\adonisui.1.17.1.nupkg.sha512",
+    "C:\\Users\\UranusDarkness\\.nuget\\packages\\adonisui.classictheme\\1.17.1\\adonisui.classictheme.1.17.1.nupkg.sha512",
     "C:\\Users\\UranusDarkness\\.nuget\\packages\\embedio\\3.4.3\\embedio.3.4.3.nupkg.sha512",
     "C:\\Users\\UranusDarkness\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\UranusDarkness\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using AdonisUI.Controls;
 
 namespace SpotifyVolumeManager
 {
@@ -33,8 +34,8 @@ namespace SpotifyVolumeManager
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
             System.Configuration.Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            configuration.AppSettings.Settings["volumeDown"].Value = volumeDownTextBox.Text;
-            configuration.AppSettings.Settings["volumeUp"].Value = volumeUpTextBox.Text;
+            /*configuration.AppSettings.Settings["volumeDown"].Value = volumeDownTextBox.Text;
+            configuration.AppSettings.Settings["volumeUp"].Value = volumeUpTextBox.Text;*/
             configuration.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection(configuration.AppSettings.SectionInformation.Name);
             HotKeyManager.UnregisterHotKey(upid);
@@ -51,8 +52,8 @@ namespace SpotifyVolumeManager
         private void keybindsWindow_Loaded(object sender, RoutedEventArgs e)
         {
             System.Configuration.Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            volumeDownLabel.Content = configuration.AppSettings.Settings["volumeDown"].Value;
-            volumeUpLabel.Content = configuration.AppSettings.Settings["volumeUp"].Value;
+            /*volumeDownLabel.Content = configuration.AppSettings.Settings["volumeDown"].Value;
+            volumeUpLabel.Content = configuration.AppSettings.Settings["volumeUp"].Value;*/
         }
 
         private void volumeUpTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -89,7 +90,7 @@ namespace SpotifyVolumeManager
             shortcutText.Append(key.ToString());
 
             // Update the text box.
-            volumeUpTextBox.Text = shortcutText.ToString();
+            //volumeUpTextBox.Text = shortcutText.ToString();
         }
 
         private void volumeDownTextBox_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -126,7 +127,7 @@ namespace SpotifyVolumeManager
             shortcutText.Append(key.ToString());
 
             // Update the text box.
-            volumeDownTextBox.Text = shortcutText.ToString();
+            //volumeDownTextBox.Text = shortcutText.ToString();
         }
     }
 }

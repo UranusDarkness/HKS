@@ -7,15 +7,18 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="HotKeySet.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="KeyBindsSetter.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="KeyBindsSetter.xaml">
+    <Page Update="HotKeySet.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="KeyBindsSetter.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

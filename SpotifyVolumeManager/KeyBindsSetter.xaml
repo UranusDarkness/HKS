@@ -3,12 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+        xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+        xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
         xmlns:local="clr-namespace:SpotifyVolumeManager"
         mc:Ignorable="d"
         Name="keybindsWindow"
         Loaded="keybindsWindow_Loaded"
         Title="Keybinds" Height="350" Width="250"
         WindowStartupLocation="CenterScreen">
+    <Window.Style>
+        <Style TargetType="Window" BasedOn="{StaticResource {x:Type Window}}">
+            <Style.Triggers>
+                
+            </Style.Triggers>
+        </Style>
+
+    </Window.Style>
     <Grid Name="myGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -17,7 +28,7 @@
             <ColumnDefinition ></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="0.5*"></RowDefinition>
@@ -30,9 +41,9 @@
 
         <Label Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="0" Name="volumeUpLabel"></Label>
         <Label Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" Name="volumeDownLabel"></Label>
-        
+
         <TextBox Grid.Column="2" Grid.Row="1" Name="volumeUpTextBox" PreviewKeyDown="volumeUpTextBox_PreviewKeyDown">
-            
+
         </TextBox>
 
         <TextBox Grid.Column="2" Grid.Row="3" Name="volumeDownTextBox" PreviewKeyDown="volumeDownTextBox_PreviewKeyDown">

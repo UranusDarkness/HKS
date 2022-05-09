@@ -1,23 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\UranusDarkness\\source\\repos\\SpotifyVolumeManager\\SpotifyVolumeManager\\SpotifyVolumeManager.csproj": {}
+    "D:\\Utenti\\UranusDarkness\\Documenti\\GitHub\\PCS\\SpotifyVolumeManager\\SpotifyVolumeManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\UranusDarkness\\source\\repos\\SpotifyVolumeManager\\SpotifyVolumeManager\\SpotifyVolumeManager.csproj": {
+    "D:\\Utenti\\UranusDarkness\\Documenti\\GitHub\\PCS\\SpotifyVolumeManager\\SpotifyVolumeManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\UranusDarkness\\source\\repos\\SpotifyVolumeManager\\SpotifyVolumeManager\\SpotifyVolumeManager.csproj",
+        "projectUniqueName": "D:\\Utenti\\UranusDarkness\\Documenti\\GitHub\\PCS\\SpotifyVolumeManager\\SpotifyVolumeManager.csproj",
         "projectName": "SpotifyVolumeManager",
-        "projectPath": "C:\\Users\\UranusDarkness\\source\\repos\\SpotifyVolumeManager\\SpotifyVolumeManager\\SpotifyVolumeManager.csproj",
+        "projectPath": "D:\\Utenti\\UranusDarkness\\Documenti\\GitHub\\PCS\\SpotifyVolumeManager\\SpotifyVolumeManager.csproj",
         "packagesPath": "C:\\Users\\UranusDarkness\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\UranusDarkness\\source\\repos\\SpotifyVolumeManager\\SpotifyVolumeManager\\obj\\",
+        "outputPath": "D:\\Utenti\\UranusDarkness\\Documenti\\GitHub\\PCS\\SpotifyVolumeManager\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\UranusDarkness\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -44,6 +46,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "AdonisUI": {
+              "target": "Package",
+              "version": "[1.17.1, )"
+            },
+            "AdonisUI.ClassicTheme": {
+              "target": "Package",
+              "version": "[1.17.1, )"
+            },
             "SpotifyAPI.Web": {
               "target": "Package",
               "version": "[6.2.2, )"

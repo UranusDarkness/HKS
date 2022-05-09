@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\UranusDarkness\source\repos\SpotifyVolumeManager\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\
+D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\
 SpotifyVolumeManager
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
-C:\Users\UranusDarkness\source\repos\SpotifyVolumeManager\SpotifyVolumeManager\App.xaml
-2-635163486
+D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\App.xaml
+21578354221
 
-6-1329655494
-204240615994
-KeyBindsSetter.xaml;MainWindow.xaml;
+6-1939413055
+2062128265135
+HotKeySet.xaml;KeyBindsSetter.xaml;
 
 False
 
