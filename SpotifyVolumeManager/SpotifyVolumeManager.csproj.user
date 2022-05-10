@@ -13,7 +13,16 @@
     <Compile Update="KeyBindsSetter.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Resources\UserControls\HotKeysUserControl.xaml.cs">
+    <Compile Update="Views\HotKeyUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\InfoUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SettingsUserControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpdatesUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -24,7 +33,16 @@
     <Page Update="KeyBindsSetter.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Resources\UserControls\HotKeysUserControl.xaml">
+    <Page Update="Views\HotKeyUserControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\InfoUserControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SettingsUserControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpdatesUserControl.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

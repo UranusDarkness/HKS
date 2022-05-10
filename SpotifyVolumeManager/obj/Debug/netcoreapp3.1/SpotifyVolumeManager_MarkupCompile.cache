@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\App.xaml
-3-573251279
+6-966342587
 
-71380185148
+10-1124908887
 2062128265135
-HotKeySet.xaml;KeyBindsSetter.xaml;Resources\UserControls\HotKeysUserControl.xaml;
+HotKeySet.xaml;KeyBindsSetter.xaml;Views\HotKeyUserControl.xaml;Views\InfoUserControl.xaml;Views\SettingsUserControl.xaml;Views\UpdatesUserControl.xaml;
 
 False
 

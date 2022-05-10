@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SpotifyVolumeManager.Resources.UserControls
+namespace SpotifyVolumeManager.Views
 {
     /// <summary>
-    /// Logica di interazione per HotKeysUserControl.xaml
+    /// Logica di interazione per InfoUserControl.xaml
     /// </summary>
-    public partial class HotKeysUserControl : UserControl
+    public partial class InfoUserControl : UserControl
     {
-        public HotKeysUserControl()
+        public InfoUserControl()
         {
             InitializeComponent();
         }

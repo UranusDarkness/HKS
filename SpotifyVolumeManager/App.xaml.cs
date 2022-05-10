@@ -21,7 +21,7 @@ namespace SpotifyVolumeManager
     {
         static SpotifyClient spotify;
         private readonly Forms.NotifyIcon _notifyIcon;
-        private readonly string OAuth_Token = "";
+        //private readonly string OAuth_Token = "";
         public int volume_up_id;
         public int volume_down_id;
         string triggerKey;

@@ -32,7 +32,6 @@ C:\Users\UranusDarkness\source\repos\SpotifyVolumeManager\SpotifyVolumeManager\o
 C:\Users\UranusDarkness\source\repos\SpotifyVolumeManager\SpotifyVolumeManager\bin\Debug\netcoreapp3.1\EmbedIO.dll
 C:\Users\UranusDarkness\source\repos\SpotifyVolumeManager\SpotifyVolumeManager\bin\Debug\netcoreapp3.1\SpotifyAPI.Web.Auth.dll
 C:\Users\UranusDarkness\source\repos\SpotifyVolumeManager\SpotifyVolumeManager\bin\Debug\netcoreapp3.1\Swan.Lite.dll
-D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\SpotifyVolumeManager.csproj.AssemblyReference.cache
 D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\KeyBindsSetter.g.cs
 D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\App.g.cs
 D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\SpotifyVolumeManager_MarkupCompile.cache
@@ -69,5 +68,12 @@ D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\net
 D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\SpotifyVolumeManager.csproj.CoreCompileInputs.cache
 D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\SpotifyVolumeManager.csproj.CopyComplete
 D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\SpotifyVolumeManager.genruntimeconfig.cache
-D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\Resources\UserControls\HotKeysUserControl.g.cs
-D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\Resources\UserControls\HotKeysUserControl.baml
+D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\Views\InfoUserControl.g.cs
+D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\Views\SettingsUserControl.g.cs
+D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\Views\UpdatesUserControl.g.cs
+D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\Views\HotKeyUserControl.g.cs
+D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\Views\HotKeyUserControl.baml
+D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\Views\InfoUserControl.baml
+D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\Views\SettingsUserControl.baml
+D:\Utenti\UranusDarkness\Documenti\GitHub\PCS\SpotifyVolumeManager\obj\Debug\netcoreapp3.1\Views\UpdatesUserControl.baml

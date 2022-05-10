@@ -41,25 +41,5 @@ namespace SpotifyVolumeManager
         {
             ResourceLocator.SetColorScheme(Application.Current.Resources, oldValue ? ResourceLocator.LightColorScheme : ResourceLocator.DarkColorScheme);
         }
-
-        private void hotKeysListBoxItem_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void updatesListBoxItem_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void settingsListBoxItem_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void infoListBoxItem_Selected(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
