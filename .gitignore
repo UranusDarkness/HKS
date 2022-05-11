@@ -1,2 +1,12 @@
-SpotifyVolumeManager/bin/
-SpotifyVolumeManager/obj/
+# Build
+[Bb]in/
+[Dd]ebug/
+[Oo]bj/
+[Rr]elease/
+[Rr]eleases/
+build/
+x64/
+x86/
+
+# Visual Studio Files
+.vs/
