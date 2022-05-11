@@ -4,12 +4,58 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SpotifyVolumeManager.Views"
+             xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+             xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+             xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Name="infoUserControl"
+             Loaded="infoUserControl_Loaded">
+    <UserControl.Resources>
+        <Style x:Key="NavigationGroupHeaderStyle"
+                   TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="FontSize" Value="11"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Info" FontSize="11"/>
+        <Grid.ColumnDefinitions>
+            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Image Source="pack://application:,,,/Resources/img/spotifyVolumeManagerLogo.png" Width="64" Height="64"/>
+            <TextBlock Text="HKS" Style="{StaticResource NavigationGroupHeaderStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="30,0,0,0" FontSize="20"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+            <TextBlock Text="Version: " Style="{StaticResource NavigationGroupHeaderStyle}" FontSize="16" Name="versionTextBlock"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <TextBlock Text="Login Status: " Style="{StaticResource NavigationGroupHeaderStyle}" FontSize="18"/>
+            <Ellipse Fill="Red" Width="16" Height="16" Margin="10,0,0,0" Name="loginStatusCircle" ToolTip="Not logged in"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+            <TextBlock Text="Developed by "/>
 
+            <TextBlock>
+            <Hyperlink NavigateUri="https://github.com/UranusDarkness" RequestNavigate="Hyperlink_RequestNavigate">
+                UranusDarkness
+            </Hyperlink>
+            </TextBlock>
+            
+            <TextBlock Text=" and "/>
+            
+            <TextBlock Padding="0,0,4,0">
+            <Hyperlink NavigateUri="https://github.com/Fil0807" RequestNavigate="Hyperlink_RequestNavigate">
+                Fil0807
+            </Hyperlink>
+            </TextBlock>
         </StackPanel>
     </Grid>
 </UserControl>

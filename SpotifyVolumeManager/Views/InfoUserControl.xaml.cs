@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace SpotifyVolumeManager.Views
 {
@@ -21,6 +22,21 @@ namespace SpotifyVolumeManager.Views
         public InfoUserControl()
         {
             InitializeComponent();
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
+        }
+
+        private void infoUserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            versionTextBlock.Text += FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location.ToString()).FileVersion.ToString();
+        }
+
+        private void loginStatusCircle_MouseEnter(object sender, MouseEventArgs e)
+        {
+            
         }
     }
 }

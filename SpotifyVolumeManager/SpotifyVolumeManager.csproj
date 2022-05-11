@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="Resources\img\spotifyVolumeManagerLogo.ico" />
+    <None Remove="Resources\img\spotifyVolumeManagerLogo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,12 @@
     <PackageReference Include="SpotifyAPI.Web" Version="6.2.2" />
     <PackageReference Include="SpotifyAPI.Web.Auth" Version="6.2.2" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\img\spotifyVolumeManagerLogo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
