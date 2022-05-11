@@ -15,7 +15,7 @@ Placeholder for pictures
 ## Requirements
 * * *
 - Spotify
-- Windows (7, 8, 10, 11)
+- Windows (7, 8, 10)
 - .NET Framework 4.5+ (**Note**: it will be installed by running HKS' setup)
 
 ## Installation
