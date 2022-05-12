@@ -10,6 +10,7 @@ Placeholder for pictures
 * * *
 - Hotkeys to control Spotify (Volume Down/Up, Pause/Play, Previous/Next Track)
 - Auto Update
+- Dark Mode
 - Compatible with Spotify Desktop/Microsoft Store/Browser
 
 ## Requirements
