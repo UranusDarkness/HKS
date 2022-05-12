@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<item>
+  <version>1.0.0.0</version>
+  <url>https://github.com/UranusDarkness/HKS/releases/latest/download/HKSInstaller.msi</url>
+  <changelog>https://github.com/UranusDarkness/HKS/releases</changelog>
+  <mandatory>false</mandatory>
+</item>
