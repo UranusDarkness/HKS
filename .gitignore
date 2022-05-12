@@ -10,3 +10,6 @@ x86/
 
 # Visual Studio Files
 .vs/
+
+# Installer Build
+HKS.Setup/
