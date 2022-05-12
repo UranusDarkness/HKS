@@ -11,6 +11,7 @@ using Forms = System.Windows.Forms;
 using SpotifyAPI.Web;
 using System.ComponentModel;
 using SpotifyAPI.Web.Auth;
+using AutoUpdaterDotNET;
 
 namespace SpotifyVolumeManager
 {
@@ -175,6 +176,15 @@ namespace SpotifyVolumeManager
             _notifyIcon.Visible = true;
 
             base.OnStartup(e);
+
+            /*code behind to check if auto update is enabled
+             * 
+            System.Configuration.Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            if(configuration.AppSettings.Settings["autoUpdate"].Value == "True")
+                MessageBox.Show(configuration.AppSettings.Settings["autoUpdate"].Value, "Enabled auto update", MessageBoxButton.OK, MessageBoxImage.Information);
+            else
+                MessageBox.Show(configuration.AppSettings.Settings["autoUpdate"].Value, "Disabled auto update", MessageBoxButton.OK, MessageBoxImage.Warning);
+            */
         }
 
         private async void OnLoginClicked(object sender, EventArgs e)

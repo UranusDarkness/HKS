@@ -22,5 +22,6 @@ namespace SpotifyVolumeManager.Views
         {
             InitializeComponent();
         }
+
     }
 }

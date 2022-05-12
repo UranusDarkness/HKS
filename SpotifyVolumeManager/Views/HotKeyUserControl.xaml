@@ -4,12 +4,76 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SpotifyVolumeManager.Views"
+             xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+             xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+             xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="NavigationGroupHeaderStyle"
+                   TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="FontSize" Value="11"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="HotKey" FontSize="11"/>
+        <StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,20,0,0">
+                <ToggleButton Name="volumeUpSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}"/>
+                <TextBlock Text="Volume Up" Style="{StaticResource NavigationGroupHeaderStyle}" FontSize="15" Margin="10,0,40,0"/>
+                <TextBox x:Name="volumeUpHotKey" Width="100">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=volumeUpSwitch, Path=IsChecked}" Value="False">
+                                    <Setter Property="IsEnabled" Value="False"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                <Button Content="Clear" Margin="50,0,0,0" Name="clearVolumeUpButton" Width="60"/>
+            </StackPanel>
 
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,50,0,0">
+                <ToggleButton Name="volumeDownSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}"/>
+                <TextBlock Text="Volume Down" Style="{StaticResource NavigationGroupHeaderStyle}" FontSize="15" Margin="10,0,40,0"/>
+                <TextBox x:Name="volumeDownHotKey" Width="100">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=volumeDownSwitch, Path=IsChecked}" Value="False">
+                                    <Setter Property="IsEnabled" Value="False"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                <Button Content="Clear" Margin="50,0,0,0" Name="clearVolumeDownButton" Width="60"/>
+            </StackPanel>
+
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,50,0,0">
+                <ToggleButton Name="pausePlaySwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}"/>
+                <TextBlock Text="Pause/Play" Style="{StaticResource NavigationGroupHeaderStyle}" FontSize="15" Margin="10,0,40,0"/>
+                <TextBox x:Name="pausePlayHotKey" Width="100">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=pausePlaySwitch, Path=IsChecked}" Value="False">
+                                    <Setter Property="IsEnabled" Value="False"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                <Button Content="Clear" Margin="50,0,0,0" Name="clearPausePlayButton" Width="60"/>
+            </StackPanel>
         </StackPanel>
+        
+        
+        
     </Grid>
 </UserControl>

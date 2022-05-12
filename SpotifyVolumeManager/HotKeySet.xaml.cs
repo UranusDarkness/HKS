@@ -14,6 +14,7 @@ using System.IO;
 using AdonisUI.Controls;
 using IWshRuntimeLibrary;
 using Forms = System.Windows.Forms;
+using AutoUpdaterDotNET;
 using System.Reflection;
 
 namespace SpotifyVolumeManager
