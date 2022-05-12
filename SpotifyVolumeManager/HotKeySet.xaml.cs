@@ -10,7 +10,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using AdonisUI;
+using System.IO;
 using AdonisUI.Controls;
+using IWshRuntimeLibrary;
+using Forms = System.Windows.Forms;
+using System.Reflection;
 
 namespace SpotifyVolumeManager
 {
@@ -40,6 +44,34 @@ namespace SpotifyVolumeManager
         private void ChangeTheme(bool oldValue)
         {
             ResourceLocator.SetColorScheme(Application.Current.Resources, oldValue ? ResourceLocator.LightColorScheme : ResourceLocator.DarkColorScheme);
+        }
+
+        private void bootOnStartupSwitch_Checked(object sender, RoutedEventArgs e)
+        {
+            WshShell wshShell = new WshShell();
+            IWshRuntimeLibrary.IWshShortcut shortcut;
+            string startUpFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+
+            // Create the shortcut
+            shortcut = (IWshRuntimeLibrary.IWshShortcut)wshShell.CreateShortcut(startUpFolderPath + "\\" + Forms.Application.ProductName + ".lnk");
+
+            shortcut.TargetPath = AppDomain.CurrentDomain.BaseDirectory+"\\"+ Forms.Application.ProductName + ".exe";
+            shortcut.WorkingDirectory = Forms.Application.StartupPath;
+            shortcut.Description = "HKS";
+            shortcut.Save();
+        }
+
+        private void bootOnStartupSwitch_Unchecked(object sender, RoutedEventArgs e)
+        {
+            string startUpFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            System.IO.File.Delete(System.IO.Path.Combine(startUpFolderPath, Forms.Application.ProductName + ".lnk"));
+        }
+
+        private void hksSettingsWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            string filePath = Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + Forms.Application.ProductName +".lnk";
+            if (System.IO.File.Exists(filePath))
+                bootOnStartupSwitch.IsChecked = true;
         }
     }
 }

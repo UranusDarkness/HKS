@@ -38,7 +38,26 @@
         </StackPanel>
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="Login Status: " Style="{StaticResource NavigationGroupHeaderStyle}" FontSize="18"/>
-            <Ellipse Fill="Red" Width="16" Height="16" Margin="10,0,0,0" Name="loginStatusCircle" ToolTip="Not logged in"/>
+            <Ellipse Width="16" Height="16" Margin="10,0,0,0" Name="loginStatusCircle">
+                <Ellipse.Style>
+                    <Style TargetType="Ellipse">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=changeColorButton, Path=IsChecked}" Value="True">
+                                <Setter Property="ToolTip" Value="Successfully logged in" />
+                                <Setter Property="Fill" Value="Green"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=changeColorButton, Path=IsChecked}" Value="False">
+                                <Setter Property="ToolTip" Value="Not logged in" />
+                                <Setter Property="Fill" Value="Red"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Ellipse.Style>
+            </Ellipse>
+            <CheckBox x:Name="changeColorButton" Margin="20,0,0,0"/>
+
+
+
         </StackPanel>
         <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
             <TextBlock Text="Developed by "/>

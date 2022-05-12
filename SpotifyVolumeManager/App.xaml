@@ -18,10 +18,6 @@
                 <views:UpdatesUserControl/>
             </DataTemplate>
 
-            <DataTemplate x:Key="SettingsViewTemplate">
-                <views:SettingsUserControl/>
-            </DataTemplate>
-
             <DataTemplate x:Key="InfoViewTemplate">
                 <views:InfoUserControl/>
             </DataTemplate>

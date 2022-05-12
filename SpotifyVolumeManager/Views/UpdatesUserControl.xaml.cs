@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +22,11 @@ namespace SpotifyVolumeManager.Views
         public UpdatesUserControl()
         {
             InitializeComponent();
+        }
+
+        private void updatesUserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            hksVersionUpdateTextBlock.Text += FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location.ToString()).FileVersion.ToString();
         }
     }
 }

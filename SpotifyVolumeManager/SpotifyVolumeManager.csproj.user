@@ -19,9 +19,6 @@
     <Compile Update="Views\InfoUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\SettingsUserControl.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\UpdatesUserControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,9 +34,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\InfoUserControl.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\SettingsUserControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\UpdatesUserControl.xaml">

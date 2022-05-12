@@ -4,12 +4,51 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SpotifyVolumeManager.Views"
+             xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+             xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+             xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
              mc:Ignorable="d" 
+             Name="updatesUserControl"
+             Loaded="updatesUserControl_Loaded"
              d:DesignHeight="450" d:DesignWidth="800">
+    
+    <UserControl.Resources>
+        <Style x:Key="NavigationGroupHeaderStyle"
+                   TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="FontSize" Value="11"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Updates" FontSize="11"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
 
+        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Name="hksVersionUpdateTextBlock" Text="You are using HKS version " FontSize="11" Style="{StaticResource NavigationGroupHeaderStyle}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="15,0,15,30">
+            <TextBox Text="" Name="changeLogTextBox" IsReadOnly="True"/>
+        </StackPanel>
+        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Orientation="Vertical">
+
+            <TextBlock Text="Auto Update" Style="{StaticResource NavigationGroupHeaderStyle}" HorizontalAlignment="Center" Padding="{adonisUi:Space 3, 1, 2, 1}" FontSize="11"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Off" VerticalAlignment="Center" Margin="{adonisUi:Space 0, 0, 1, 0}"/>
+                <ToggleButton Name="autoUpdateSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}" Content="On"/>
+            </StackPanel>
+            
+            <Button Content="Check for updates" Margin="0,60,0,0" Name="checkUpdatesButton" Width="130"/>
+            
+            <ProgressBar Width="240" Height="24" Minimum="0" Maximum="100" Value="0" Margin="0,20,0,0" adonisExtensions:ProgressBarExtension.Content=""/>
         </StackPanel>
     </Grid>
 </UserControl>

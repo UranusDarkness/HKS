@@ -241,6 +241,7 @@ namespace SpotifyVolumeManager
 
         protected override void OnExit(ExitEventArgs e)
         {
+
             _notifyIcon.Dispose();
             base.OnExit(e);
         }
