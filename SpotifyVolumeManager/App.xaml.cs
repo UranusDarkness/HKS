@@ -38,7 +38,7 @@ namespace SpotifyVolumeManager
         }
         public void doStuff()
         {
-            System.Configuration.Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            /*System.Configuration.Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             if (configuration.AppSettings.Settings["volumeUp"].Value != "" && configuration.AppSettings.Settings["volumeDown"].Value != "")
             {
                 triggerKey = "";
@@ -112,7 +112,7 @@ namespace SpotifyVolumeManager
                 }
                
                 HotKeyManager.HotKeyPressed += new EventHandler<HotKeyEventArgs>(HotKeyManager_HotKeyPressed);
-            }
+            }*/
             
         }
         void HotKeyManager_HotKeyPressed(object sender, HotKeyEventArgs e)

@@ -16,13 +16,31 @@
             <Setter Property="FontWeight" Value="DemiBold"/>
             <Setter Property="FontSize" Value="11"/>
         </Style>
+
+        
     </UserControl.Resources>
     <Grid>
-        <StackPanel>
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,20,0,0">
-                <ToggleButton Name="volumeUpSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}"/>
-                <TextBlock Text="Volume Up" Style="{StaticResource NavigationGroupHeaderStyle}" FontSize="15" Margin="10,0,40,0"/>
-                <TextBox x:Name="volumeUpHotKey" Width="100">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" Margin="-20,0,0,0">
+            <StackPanel Orientation="Vertical" >
+                <ToggleButton Name="volumeUpSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}" Margin="-40,0,0,30" Padding="10,0,0,0" Content="Volume Up" FontSize="15" FontWeight="DemiBold" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+                <ToggleButton Name="volumeDownSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}" Margin="-40,10,0,30" Padding="10,0,0,0" Content="Volume Down" FontSize="15" FontWeight="DemiBold" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+                <ToggleButton Name="pausePlaySwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}" Margin="-40,10,0,30" Padding="10,0,0,0" Content="Pause / Play" FontSize="15" FontWeight="DemiBold" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+                <ToggleButton Name="nextTrackSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}" Margin="-40,10,0,30" Padding="10,0,0,0" Content="Next Track" FontSize="15" FontWeight="DemiBold" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+                <ToggleButton Name="previousTrackSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}" Margin="-40,10,0,30" Padding="10,0,0,0" Content="Previous Track" FontSize="15" FontWeight="DemiBold" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <TextBox x:Name="volumeUpTextBox" Width="100" Margin="30,0,0,0">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Style.Triggers>
@@ -33,14 +51,8 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-                <Button Content="Clear" Margin="50,0,0,0" Name="clearVolumeUpButton" Width="60"/>
-            </StackPanel>
 
-
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,50,0,0">
-                <ToggleButton Name="volumeDownSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}"/>
-                <TextBlock Text="Volume Down" Style="{StaticResource NavigationGroupHeaderStyle}" FontSize="15" Margin="10,0,40,0"/>
-                <TextBox x:Name="volumeDownHotKey" Width="100">
+                <TextBox x:Name="volumeDownTextBox" Width="100" Margin="30,43,0,0">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Style.Triggers>
@@ -51,14 +63,8 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-                <Button Content="Clear" Margin="50,0,0,0" Name="clearVolumeDownButton" Width="60"/>
-            </StackPanel>
 
-
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Margin="0,50,0,0">
-                <ToggleButton Name="pausePlaySwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}"/>
-                <TextBlock Text="Pause/Play" Style="{StaticResource NavigationGroupHeaderStyle}" FontSize="15" Margin="10,0,40,0"/>
-                <TextBox x:Name="pausePlayHotKey" Width="100">
+                <TextBox x:Name="pausePlayTextBox" Width="100" Margin="30,43,0,0">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Style.Triggers>
@@ -69,11 +75,41 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-                <Button Content="Clear" Margin="50,0,0,0" Name="clearPausePlayButton" Width="60"/>
+
+                <TextBox x:Name="nextTrackTextBox" Width="100" Margin="30,43,0,0">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=nextTrackSwitch, Path=IsChecked}" Value="False">
+                                    <Setter Property="IsEnabled" Value="False"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+
+                <TextBox x:Name="previousTrackTextBox" Width="100" Margin="30,43,0,0">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=previousTrackSwitch, Path=IsChecked}" Value="False">
+                                    <Setter Property="IsEnabled" Value="False"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
             </StackPanel>
+
+            <StackPanel Orientation="Vertical">
+                <Button Content="Clear" Margin="50,-3,0,0" Name="clearVolumeUpButton" Width="60" FontWeight="DemiBold" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+                <Button Content="Clear" Margin="50,37,0,0" Name="clearVolumeDownButton" Width="60" FontWeight="DemiBold" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+                <Button Content="Clear" Margin="50,37,0,0" Name="clearPausePlayButton" Width="60" FontWeight="DemiBold" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+                <Button Content="Clear" Margin="50,37,0,0" Name="clearNextTrackButton" Width="60" FontWeight="DemiBold" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+                <Button Content="Clear" Margin="50,37,0,0" Name="clearPreviousTrackButton" Width="60" FontWeight="DemiBold" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+            </StackPanel>
+            
         </StackPanel>
-        
-        
-        
+        <Button Grid.Column="1" Grid.Row="1" Content="Save" Width="70" Name="saveHotKeysButton" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontWeight="DemiBold" Foreground="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
     </Grid>
 </UserControl>

@@ -38,12 +38,7 @@ namespace SpotifyVolumeManager.Views
 
         private void updatesUserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            /*hksVersionUpdateTextBlock.Text += FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location.ToString()).FileVersion.ToString();
-            System.Configuration.Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            if (config.AppSettings.Settings["autoUpdate"].Value.Equals("True"))
-                autoUpdateSwitch.IsChecked = true;
-            else
-                autoUpdateSwitch.IsChecked = false;*/
+            hksVersionUpdateTextBlock.Text += FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location.ToString()).FileVersion.ToString();
             if (Properties.Settings.Default.autoUpdate.Equals("True"))
                 autoUpdateSwitch.IsChecked = true;
             else
@@ -53,22 +48,8 @@ namespace SpotifyVolumeManager.Views
         private void autoUpdateSwitch_Checked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.autoUpdate = "True";
-            Properties.Settings.Default.Save();
-            //SetSetting("autoUpdate", "True");    
+            Properties.Settings.Default.Save();   
         }
-
-      /*  private static void SetSetting(string key, string value)
-        {
-            /*System.Configuration.Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal);
-            configuration.AppSettings.Settings[key].Value = value;
-            configuration.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection(configuration.AppSettings.SectionInformation.Name);
-        }
-
-        private static string GetSetting(string key)
-        {
-            return ConfigurationManager.AppSettings[key];
-        }*/
 
         private void autoUpdateSwitch_Unchecked(object sender, RoutedEventArgs e)
         {
@@ -78,7 +59,6 @@ namespace SpotifyVolumeManager.Views
 
         private void checkUpdatesButton_Click(object sender, RoutedEventArgs e)
         {
-            //AutoUpdater.ReportErrors = true;
             AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
             AutoUpdater.Start("https://raw.githubusercontent.com/UranusDarkness/HKS/gh-pages/src/autoUpdate.xml");
         }

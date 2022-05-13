@@ -34,9 +34,9 @@
             <TextBlock Name="hksVersionUpdateTextBlock" Text="You are using HKS version " FontSize="11" Style="{StaticResource NavigationGroupHeaderStyle}"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="15,0,15,30">
-            <TextBox Text="" Name="changeLogTextBox" IsReadOnly="True"/>
-        </StackPanel>
+        <DockPanel Grid.Row="1" Grid.Column="0" LastChildFill="True" Margin="15,0,15,30">
+            <TextBox Text="" Name="changeLogTextBox" IsReadOnly="True" />
+        </DockPanel>
         
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Orientation="Vertical">
 

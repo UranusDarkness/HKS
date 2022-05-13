@@ -64,7 +64,7 @@
 
                     <TextBlock Text="Light" VerticalAlignment="Center" Margin="{adonisUi:Space 0, 0, 1, 0}"/>
 
-                    <ToggleButton Name="darkModeSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}" IsChecked="{Binding IsDark, RelativeSource={RelativeSource FindAncestor, AncestorType=local:HotKeySet}}" Content="Dark"/>
+                    <ToggleButton Name="darkModeSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}" IsChecked="{Binding IsDark, RelativeSource={RelativeSource FindAncestor, AncestorType=local:HotKeySet}}" Content="Dark" Checked="darkModeSwitch_Checked" Unchecked="darkModeSwitch_Unchecked"/>
 
                 </StackPanel>
 

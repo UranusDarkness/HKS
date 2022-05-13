@@ -73,6 +73,20 @@ namespace SpotifyVolumeManager
             string filePath = Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + Forms.Application.ProductName +".lnk";
             if (System.IO.File.Exists(filePath))
                 bootOnStartupSwitch.IsChecked = true;
+            if (Properties.Settings.Default.colorMode.Equals("Dark"))
+                darkModeSwitch.IsChecked = true;
+        }
+
+        private void darkModeSwitch_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.colorMode = "Dark";
+            Properties.Settings.Default.Save();
+        }
+
+        private void darkModeSwitch_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.colorMode = "Light";
+            Properties.Settings.Default.Save();
         }
     }
 }
