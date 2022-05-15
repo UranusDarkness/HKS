@@ -11,7 +11,7 @@
     <Setting Name="volumeDown" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="playPauseTrack" Type="System.String" Scope="User">
+    <Setting Name="pausePlay" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="nextTrack" Type="System.String" Scope="User">
@@ -21,6 +21,9 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="colorMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="authToken" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

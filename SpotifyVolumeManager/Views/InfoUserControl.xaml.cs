@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using SpotifyAPI.Web;
+using SpotifyAPI.Web.Auth;
 
 namespace SpotifyVolumeManager.Views
 {
@@ -19,6 +21,7 @@ namespace SpotifyVolumeManager.Views
     /// </summary>
     public partial class InfoUserControl : UserControl
     {
+        SpotifyClient spotify;
         public InfoUserControl()
         {
             InitializeComponent();
@@ -33,6 +36,22 @@ namespace SpotifyVolumeManager.Views
         private void infoUserControl_Loaded(object sender, RoutedEventArgs e)
         {
             versionTextBlock.Text += FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location.ToString()).FileVersion.ToString();
+            if(Properties.Settings.Default.authToken != "")
+            {
+                spotify = new SpotifyClient(Properties.Settings.Default.authToken);
+                try
+                {
+                    if (spotify.UserProfile.Current().Result.DisplayName != null)
+                        changeColorButton.IsChecked = true;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                
+            }
+            
         }
 
         private void loginStatusCircle_MouseEnter(object sender, MouseEventArgs e)

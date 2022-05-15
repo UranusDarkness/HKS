@@ -54,7 +54,7 @@
                     </Style>
                 </Ellipse.Style>
             </Ellipse>
-            <CheckBox x:Name="changeColorButton" Margin="20,0,0,0"/>
+            <CheckBox x:Name="changeColorButton" Margin="20,0,0,0" Visibility="Collapsed"/>
 
 
 

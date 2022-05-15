@@ -12,6 +12,7 @@ using SpotifyAPI.Web;
 using System.ComponentModel;
 using SpotifyAPI.Web.Auth;
 using AutoUpdaterDotNET;
+using System.Windows.Controls.Primitives;
 
 namespace SpotifyVolumeManager
 {
@@ -30,6 +31,7 @@ namespace SpotifyVolumeManager
         TypeConverter converterKeys = TypeDescriptor.GetConverter(typeof(Forms.Keys));
         TypeConverter converterMods = TypeDescriptor.GetConverter(typeof(KeyModifiers));
         private static EmbedIOAuthServer _server;
+
         public App()
         {
             _notifyIcon = new Forms.NotifyIcon();
@@ -193,8 +195,6 @@ namespace SpotifyVolumeManager
         }
 
 
-
-
         public static async Task startServer()
         {
             // Make sure "http://localhost:5000/callback" is in your spotify application as redirect uri!
@@ -221,7 +221,8 @@ namespace SpotifyVolumeManager
                 "343c40fdfafc46f082091816508179c6", "3a11ec6a038d4003a077d30ec93efa2b", response.Code, new Uri("http://localhost:5000/callback")
               )
             );
-
+            SpotifyVolumeManager.Properties.Settings.Default.authToken = tokenResponse.AccessToken;
+            SpotifyVolumeManager.Properties.Settings.Default.Save();
             spotify = new SpotifyClient(tokenResponse.AccessToken);
             // do calls with Spotify and save token?
         }

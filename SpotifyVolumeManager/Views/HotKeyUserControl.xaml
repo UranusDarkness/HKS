@@ -42,7 +42,7 @@
             </StackPanel>
 
             <StackPanel Orientation="Vertical">
-                <TextBox x:Name="volumeUpTextBox" Width="100" Margin="30,0,0,0" Text="{Binding Source={x:Static props:Settings.Default}, Path=volumeUp}">
+                <TextBox x:Name="volumeUpTextBox" Width="100" Margin="30,0,0,0" Text="{Binding Source={x:Static props:Settings.Default}, Path=volumeUp}" PreviewKeyDown="TextBox_PreviewKeyDown">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Style.Triggers>
@@ -54,7 +54,7 @@
                     </TextBox.Style>
                 </TextBox>
 
-                <TextBox x:Name="volumeDownTextBox" Width="100" Margin="30,43,0,0" Text="{Binding Source={x:Static props:Settings.Default}, Path=volumeDown}">
+                <TextBox x:Name="volumeDownTextBox" Width="100" Margin="30,43,0,0" Text="{Binding Source={x:Static props:Settings.Default}, Path=volumeDown}" PreviewKeyDown="TextBox_PreviewKeyDown">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Style.Triggers>
@@ -66,7 +66,7 @@
                     </TextBox.Style>
                 </TextBox>
 
-                <TextBox x:Name="pausePlayTextBox" Width="100" Margin="30,43,0,0" Text="{Binding Source={x:Static props:Settings.Default}, Path=pausePlay}">
+                <TextBox x:Name="pausePlayTextBox" Width="100" Margin="30,43,0,0" Text="{Binding Source={x:Static props:Settings.Default}, Path=pausePlay}" PreviewKeyDown="TextBox_PreviewKeyDown">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Style.Triggers>
@@ -78,7 +78,7 @@
                     </TextBox.Style>
                 </TextBox>
 
-                <TextBox x:Name="nextTrackTextBox" Width="100" Margin="30,43,0,0" Text="{Binding Source={x:Static props:Settings.Default}, Path=nextTrack}">
+                <TextBox x:Name="nextTrackTextBox" Width="100" Margin="30,43,0,0" Text="{Binding Source={x:Static props:Settings.Default}, Path=nextTrack}" PreviewKeyDown="TextBox_PreviewKeyDown">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Style.Triggers>
@@ -90,7 +90,7 @@
                     </TextBox.Style>
                 </TextBox>
 
-                <TextBox x:Name="previousTrackTextBox" Width="100" Margin="30,43,0,0" Text="{Binding Source={x:Static props:Settings.Default}, Path=previousTrack}">
+                <TextBox x:Name="previousTrackTextBox" Width="100" Margin="30,43,0,0" Text="{Binding Source={x:Static props:Settings.Default}, Path=previousTrack}" PreviewKeyDown="TextBox_PreviewKeyDown">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Style.Triggers>

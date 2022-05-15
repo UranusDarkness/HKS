@@ -62,12 +62,12 @@ namespace SpotifyVolumeManager.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string playPauseTrack {
+        public string pausePlay {
             get {
-                return ((string)(this["playPauseTrack"]));
+                return ((string)(this["pausePlay"]));
             }
             set {
-                this["playPauseTrack"] = value;
+                this["pausePlay"] = value;
             }
         }
         
@@ -104,6 +104,18 @@ namespace SpotifyVolumeManager.Properties {
             }
             set {
                 this["colorMode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string authToken {
+            get {
+                return ((string)(this["authToken"]));
+            }
+            set {
+                this["authToken"] = value;
             }
         }
     }

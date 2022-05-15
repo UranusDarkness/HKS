@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using AdonisUI;
 using System.Windows.Shapes;
 using System.Windows.Controls.Primitives;
+using System.Configuration;
 
 namespace SpotifyVolumeManager.Views
 {
@@ -49,10 +50,11 @@ namespace SpotifyVolumeManager.Views
         {
             Properties.Settings.Default.volumeUp = volumeUpTextBox.Text;
             Properties.Settings.Default.volumeDown = volumeDownTextBox.Text;
-            Properties.Settings.Default.playPauseTrack = pausePlayTextBox.Text;
+            Properties.Settings.Default.pausePlay = pausePlayTextBox.Text;
             Properties.Settings.Default.previousTrack = previousTrackTextBox.Text;
             Properties.Settings.Default.nextTrack = nextTrackTextBox.Text;
             Properties.Settings.Default.Save();
+            ConfigurationManager.RefreshSection("userSettings");
         }
 
         private void hotKeyUserControl_Loaded(object sender, RoutedEventArgs e)
@@ -81,6 +83,48 @@ namespace SpotifyVolumeManager.Views
             TextBox tb = null;
             keyValuePairs.TryGetValue(temp, out tb);
             tb.Text = "";
+        }
+
+        private void readHotKeyCombo(KeyEventArgs e, TextBox tb)
+        {
+            // The text box grabs all input.
+            e.Handled = true;
+
+            // Fetch the actual shortcut key.
+            Key key = (e.Key == Key.System ? e.SystemKey : e.Key);
+
+            // Ignore modifier keys.
+            if (key == Key.LeftShift || key == Key.RightShift
+                || key == Key.LeftCtrl || key == Key.RightCtrl
+                || key == Key.LeftAlt || key == Key.RightAlt
+                || key == Key.LWin || key == Key.RWin)
+            {
+                return;
+            }
+
+            // Build the shortcut key name.
+            StringBuilder shortcutText = new StringBuilder();
+            if ((Keyboard.Modifiers & ModifierKeys.Control) != 0)
+            {
+                shortcutText.Append("Ctrl+");
+            }
+            if ((Keyboard.Modifiers & ModifierKeys.Shift) != 0)
+            {
+                shortcutText.Append("Shift+");
+            }
+            if ((Keyboard.Modifiers & ModifierKeys.Alt) != 0)
+            {
+                shortcutText.Append("Alt+");
+            }
+            shortcutText.Append(key.ToString());
+
+            // Update the text box.
+            tb.Text = shortcutText.ToString();
+        }
+
+        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            readHotKeyCombo(e, (TextBox)sender);
         }
     }
 }
