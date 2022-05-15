@@ -19,6 +19,8 @@ using System.Diagnostics;
 using System.Windows.Forms.VisualStyles;
 using System.Runtime.InteropServices;
 using System.Windows.Interop;
+using AdonisUI;
+using AdonisUI.Controls;
 
 namespace SpotifyVolumeManager
 {
@@ -34,11 +36,14 @@ namespace SpotifyVolumeManager
         public int volume_down_id;
         string triggerKey;
         string modKey;
+        public bool IsDark;
         TypeConverter converterKeys = TypeDescriptor.GetConverter(typeof(Forms.Keys));
         TypeConverter converterMods = TypeDescriptor.GetConverter(typeof(KeyModifiers));
         private static EmbedIOAuthServer _server;
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-        
+        AdonisUI.Controls.MessageBoxModel messageBox;
+        AdonisUI.Controls.MessageBoxResult resultMessageBox;
+        AutoUpdateWindow autoUpdateWindow;
         public App()
         {
             _notifyIcon = new Forms.NotifyIcon();
@@ -139,44 +144,68 @@ namespace SpotifyVolumeManager
             {
                 if (args.IsUpdateAvailable)
                 {
-                    Forms.DialogResult dialogResult;
+                    //Forms.DialogResult dialogResult;
                     if (args.Mandatory.Value)
                     {
-                        dialogResult =
+                        /*dialogResult =
                             Forms.MessageBox.Show(
                                 $@"There is new version {args.CurrentVersion} available. You are using version {args.InstalledVersion}. This is required update. Press Ok to begin updating the application.", @"Update Available",
                                 Forms.MessageBoxButtons.OK,
-                                Forms.MessageBoxIcon.Information);
+                                Forms.MessageBoxIcon.Information);*/
+                        /*messageBox = new MessageBoxModel
+                        {
+                            Text = $@"There is new version {args.CurrentVersion} available. You are using version {args.InstalledVersion}. This is required update. Press Ok to begin updating the application.",
+                            Caption = @"Update Available",
+                            Icon = AdonisUI.Controls.MessageBoxImage.Information,
+                            Buttons = (IEnumerable<IMessageBoxButtonModel>)MessageBoxButtons.Ok(),
+                        };*/
+
+                        /*resultMessageBox = AdonisUI.Controls.MessageBox.Show($@"There is new version {args.CurrentVersion} available. You are using version {args.InstalledVersion}. This is required update. Press Ok to begin updating the application.", @"Update Available",
+                            AdonisUI.Controls.MessageBoxButton.OK,
+                            AdonisUI.Controls.MessageBoxImage.Information);*/
+                        resultMessageBox = AdonisUI.Controls.MessageBox.Show($@"There is new version {args.CurrentVersion} available. You are using version {args.InstalledVersion}. This is required update. Press Ok to begin updating the application.", @"Update Available", AdonisUI.Controls.MessageBoxButton.OK, AdonisUI.Controls.MessageBoxImage.Information);
                     }
                     else
                     {
-                        dialogResult =
+                        /*messageBox = new MessageBoxModel
+                        {
+                            Text = $@"There is new version {args.CurrentVersion} available. You are using version {args.InstalledVersion}. Do you want to update the application now?",
+                            Caption = @"Update Available",
+                            Icon = AdonisUI.Controls.MessageBoxImage.Information,
+                            Buttons = MessageBoxButtons.YesNo(),
+                        };*/
+
+                       // resultMessageBox = AdonisUI.Controls.MessageBox.Show(messageBox);
+                        resultMessageBox = AdonisUI.Controls.MessageBox.Show(autoUpdateWindow, $@"There is new version {args.CurrentVersion} available. You are using version {args.InstalledVersion}. Do you want to update the application now?", @"Update Available", AdonisUI.Controls.MessageBoxButton.YesNo, AdonisUI.Controls.MessageBoxImage.Information, AdonisUI.Controls.MessageBoxResult.None);
+                        /*dialogResult =
                             Forms.MessageBox.Show(
                                 $@"There is new version {args.CurrentVersion} available. You are using version {
                                         args.InstalledVersion
                                     }. Do you want to update the application now?", @"Update Available",
                                 Forms.MessageBoxButtons.YesNo,
-                                Forms.MessageBoxIcon.Information);
+                                Forms.MessageBoxIcon.Information);*/
+                        //resultMessageBox = AdonisUI.Controls.MessageBox.Show($@"There is new version {args.CurrentVersion} available. You are using version {args.InstalledVersion}. Do you want to update the application now?", @"Update Available", AdonisUI.Controls.MessageBoxButton.YesNo, AdonisUI.Controls.MessageBoxImage.Information);
                     }
 
                     // Uncomment the following line if you want to show standard update dialog instead.
                     //AutoUpdater.ShowUpdateForm(args);
 
-                    if (dialogResult.Equals(Forms.DialogResult.Yes) || dialogResult.Equals(Forms.DialogResult.OK))
+                    if (resultMessageBox.Equals(AdonisUI.Controls.MessageBoxResult.Yes) || resultMessageBox.Equals(AdonisUI.Controls.MessageBoxResult.OK))
                     {
                         try
                         {
                             if (Models.AutoUpdater.DownloadUpdate(args))
                             {
-                                AutoUpdateWindow autoUpdateWindow = new AutoUpdateWindow();
+                                autoUpdateWindow = new AutoUpdateWindow();
                                 autoUpdateWindow.Show();
                             }
 
                         }
                         catch (Exception exception)
                         {
-                            Forms.MessageBox.Show(exception.Message, exception.GetType().ToString(), Forms.MessageBoxButtons.OK,
-                                Forms.MessageBoxIcon.Error);
+                            /*Forms.MessageBox.Show(exception.Message, exception.GetType().ToString(), Forms.MessageBoxButtons.OK,
+                                Forms.MessageBoxIcon.Error);*/
+                            AdonisUI.Controls.MessageBox.Show(exception.Message, exception.GetType().ToString(), AdonisUI.Controls.MessageBoxButton.OK, AdonisUI.Controls.MessageBoxImage.Error);
                         }
                     }
                 }
@@ -190,15 +219,19 @@ namespace SpotifyVolumeManager
             {
                 if (args.Error is WebException)
                 {
-                    Forms.MessageBox.Show(
+                    /*Forms.MessageBox.Show(
                         @"There is a problem reaching update server. Please check your internet connection and try again later.",
-                        @"Update Check Failed", Forms.MessageBoxButtons.OK, Forms.MessageBoxIcon.Error);
+                        @"Update Check Failed", Forms.MessageBoxButtons.OK, Forms.MessageBoxIcon.Error);*/
+                    AdonisUI.Controls.MessageBox.Show(@"There is a problem reaching update server. Please check your internet connection and try again later.",
+                        @"Update Check Failed", AdonisUI.Controls.MessageBoxButton.OK, AdonisUI.Controls.MessageBoxImage.Error);
                 }
                 else
                 {
-                    Forms.MessageBox.Show(args.Error.Message,
+                    /*Forms.MessageBox.Show(args.Error.Message,
                         args.Error.GetType().ToString(), Forms.MessageBoxButtons.OK,
-                        Forms.MessageBoxIcon.Error);
+                        Forms.MessageBoxIcon.Error);*/
+                    AdonisUI.Controls.MessageBox.Show(args.Error.Message,
+                        args.Error.GetType().ToString(), AdonisUI.Controls.MessageBoxButton.OK, AdonisUI.Controls.MessageBoxImage.Error);
                 }
             }
             Models.AutoUpdater.CheckForUpdateEvent -= AutoUpdaterOnCheckForUpdateEvent;
@@ -256,10 +289,28 @@ namespace SpotifyVolumeManager
                 spotify.Player.SetVolume(new PlayerVolumeRequest(newvol));
             }
         }
-        /*protected override void OnStartup(StartupEventArgs e)
+        protected override void OnStartup(StartupEventArgs e)
         {
-            
-        }*/
+            ChangeTheme(defaultInstance.colorMode);
+
+
+            Models.AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
+            if (defaultInstance.autoUpdate.Equals("True"))
+                Models.AutoUpdater.Start("https://raw.githubusercontent.com/UranusDarkness/HKS/gh-pages/src/autoUpdate.xml");
+
+            Assembly myAss = Assembly.GetExecutingAssembly();
+            Stream myStre = myAss.GetManifestResourceStream(myAss.GetName().Name + ".Resources.img.spotifyVolumeManagerLogo.ico");
+            _notifyIcon.Icon = new System.Drawing.Icon(myStre);
+            _notifyIcon.Text = "Spotify Volume Manager";
+
+            _notifyIcon.ContextMenuStrip = new Forms.ContextMenuStrip();
+            _notifyIcon.ContextMenuStrip.Items.Add("Login", null, OnLoginClicked);
+            _notifyIcon.ContextMenuStrip.Items.Add("Settings", null, OnKeybindsClicked);
+            _notifyIcon.ContextMenuStrip.Items.Add("Exit", null, OnExitClicked);
+            _notifyIcon.Visible = true;
+
+            base.OnStartup(e);
+        }
 
         private async void OnLoginClicked(object sender, EventArgs e)
         {
@@ -322,29 +373,24 @@ namespace SpotifyVolumeManager
 
         protected override void OnExit(ExitEventArgs e)
         {
-
             _notifyIcon.Dispose();
             base.OnExit(e);
         }
 
-        private void Application_Startup(object sender, StartupEventArgs e)
+        private void ChangeTheme(string current)
         {
-            Models.AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
-            if (defaultInstance.autoUpdate.Equals("True"))
-                Models.AutoUpdater.Start("https://raw.githubusercontent.com/UranusDarkness/HKS/gh-pages/src/autoUpdate.xml");
+            if (current.Equals("Dark"))
+            {
+                IsDark = false;
+                ResourceLocator.SetColorScheme(Application.Current.Resources, IsDark ? ResourceLocator.LightColorScheme : ResourceLocator.DarkColorScheme);
 
-            Assembly myAss = Assembly.GetExecutingAssembly();
-            Stream myStre = myAss.GetManifestResourceStream(myAss.GetName().Name + ".Resources.img.spotifyVolumeManagerLogo.ico");
-            _notifyIcon.Icon = new System.Drawing.Icon(myStre);
-            _notifyIcon.Text = "Spotify Volume Manager";
+            }
 
-            _notifyIcon.ContextMenuStrip = new Forms.ContextMenuStrip();
-            _notifyIcon.ContextMenuStrip.Items.Add("Login", null, OnLoginClicked);
-            _notifyIcon.ContextMenuStrip.Items.Add("Settings", null, OnKeybindsClicked);
-            _notifyIcon.ContextMenuStrip.Items.Add("Exit", null, OnExitClicked);
-            _notifyIcon.Visible = true;
-
-            //base.OnStartup(e);
         }
+
+        /*private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            
+        }*/
     }
 }

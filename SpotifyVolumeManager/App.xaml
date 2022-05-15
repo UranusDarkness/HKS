@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:SpotifyVolumeManager"
              xmlns:views="clr-namespace:SpotifyVolumeManager.Views"
-             xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
-             Startup="Application_Startup">
+             xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

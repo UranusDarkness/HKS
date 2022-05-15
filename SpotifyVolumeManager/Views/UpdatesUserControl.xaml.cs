@@ -32,6 +32,8 @@ namespace SpotifyVolumeManager.Views
     /// </summary>
     public partial class UpdatesUserControl : UserControl, Models.IProgressBarChangeListener
     {
+        AdonisUI.Controls.MessageBoxModel messageBox;
+        AdonisUI.Controls.MessageBoxResult resultMessageBox;
         public UpdatesUserControl()
         {
             InitializeComponent();
@@ -71,30 +73,33 @@ namespace SpotifyVolumeManager.Views
             {
                 if (args.IsUpdateAvailable)
                 {
-                    Forms.DialogResult dialogResult;
+                    //Forms.DialogResult dialogResult;
                     if (args.Mandatory.Value)
                     {
-                        dialogResult =
+                        /*dialogResult =
                             Forms.MessageBox.Show(
                                 $@"There is new version {args.CurrentVersion} available. You are using version {args.InstalledVersion}. This is required update. Press Ok to begin updating the application.", @"Update Available",
                                 Forms.MessageBoxButtons.OK,
-                                Forms.MessageBoxIcon.Information);
+                                Forms.MessageBoxIcon.Information);*/
+                        resultMessageBox = AdonisUI.Controls.MessageBox.Show($@"There is new version {args.CurrentVersion} available. You are using version {args.InstalledVersion}. This is required update. Press Ok to begin updating the application.", @"Update Available", AdonisUI.Controls.MessageBoxButton.OK, AdonisUI.Controls.MessageBoxImage.Information);
                     }
                     else
                     {
-                        dialogResult =
+                        /*dialogResult =
                             Forms.MessageBox.Show(
                                 $@"There is new version {args.CurrentVersion} available. You are using version {
                                         args.InstalledVersion
                                     }. Do you want to update the application now?", @"Update Available",
                                 Forms.MessageBoxButtons.YesNo,
-                                Forms.MessageBoxIcon.Information);
+                                Forms.MessageBoxIcon.Information);*/
+                        resultMessageBox = AdonisUI.Controls.MessageBox.Show($@"There is new version {args.CurrentVersion} available. You are using version {args.InstalledVersion}. Do you want to update the application now?", @"Update Available", AdonisUI.Controls.MessageBoxButton.YesNo, AdonisUI.Controls.MessageBoxImage.Information);
                     }
 
                     // Uncomment the following line if you want to show standard update dialog instead.
-                     //AutoUpdater.ShowUpdateForm(args);
+                    //AutoUpdater.ShowUpdateForm(args);
 
-                    if (dialogResult.Equals(Forms.DialogResult.Yes) || dialogResult.Equals(Forms.DialogResult.OK))
+                    //if (dialogResult.Equals(Forms.DialogResult.Yes) || dialogResult.Equals(Forms.DialogResult.OK))
+                    if (resultMessageBox.Equals(AdonisUI.Controls.MessageBoxResult.Yes) || resultMessageBox.Equals(AdonisUI.Controls.MessageBoxResult.OK))
                     {
                         try
                         {
@@ -106,30 +111,36 @@ namespace SpotifyVolumeManager.Views
                         }
                         catch (Exception exception)
                         {
-                            Forms.MessageBox.Show(exception.Message, exception.GetType().ToString(), Forms.MessageBoxButtons.OK,
-                                Forms.MessageBoxIcon.Error);
+                            /*Forms.MessageBox.Show(exception.Message, exception.GetType().ToString(), Forms.MessageBoxButtons.OK,
+                                Forms.MessageBoxIcon.Error);*/
+                            AdonisUI.Controls.MessageBox.Show(exception.Message, exception.GetType().ToString(), AdonisUI.Controls.MessageBoxButton.OK, AdonisUI.Controls.MessageBoxImage.Error);
                         }
                     }
                 }
                 else
                 {
-                    Forms.MessageBox.Show(@"There is no update available please try again later.", @"No update available",
-                        Forms.MessageBoxButtons.OK, Forms.MessageBoxIcon.Information);
+                    /*Forms.MessageBox.Show(@"There is no update available please try again later.", @"No update available",
+                        Forms.MessageBoxButtons.OK, Forms.MessageBoxIcon.Information);*/
+                    AdonisUI.Controls.MessageBox.Show(@"There is no update available please try again later.", @"No update available", AdonisUI.Controls.MessageBoxButton.OK, AdonisUI.Controls.MessageBoxImage.Information);
                 }
             }
             else
             {
                 if (args.Error is WebException)
                 {
-                    Forms.MessageBox.Show(
+                    /*Forms.MessageBox.Show(
                         @"There is a problem reaching update server. Please check your internet connection and try again later.",
-                        @"Update Check Failed", Forms.MessageBoxButtons.OK, Forms.MessageBoxIcon.Error);
+                        @"Update Check Failed", Forms.MessageBoxButtons.OK, Forms.MessageBoxIcon.Error);*/
+                    AdonisUI.Controls.MessageBox.Show(@"There is a problem reaching update server. Please check your internet connection and try again later.",
+                        @"Update Check Failed", AdonisUI.Controls.MessageBoxButton.OK, AdonisUI.Controls.MessageBoxImage.Error);
                 }
                 else
                 {
-                    Forms.MessageBox.Show(args.Error.Message,
+                    /*Forms.MessageBox.Show(args.Error.Message,
                         args.Error.GetType().ToString(), Forms.MessageBoxButtons.OK,
-                        Forms.MessageBoxIcon.Error);
+                        Forms.MessageBoxIcon.Error);*/
+                    AdonisUI.Controls.MessageBox.Show(args.Error.Message,
+                        args.Error.GetType().ToString(), AdonisUI.Controls.MessageBoxButton.OK, AdonisUI.Controls.MessageBoxImage.Error);
                 }
             }
             
