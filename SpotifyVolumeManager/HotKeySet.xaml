@@ -16,7 +16,7 @@
         TitleBarForeground="White"
         ShrinkTitleBarWhenMaximized="False" 
         WindowStartupLocation="CenterScreen"
-        Name="hksSettingsWindow" Loaded="hksSettingsWindow_Loaded">
+        x:Name="hksSettingsWindow" Loaded="hksSettingsWindow_Loaded">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -39,15 +39,15 @@
                 <Setter Property="FontWeight" Value="DemiBold"/>
                 <Setter Property="FontSize" Value="11"/>
             </Style>
-            
-            
+
+
         </ResourceDictionary>
 
 
-        
+
     </Window.Resources>
-    
-    
+
+
 
 
     <Grid>
@@ -64,7 +64,7 @@
 
                     <TextBlock Text="Light" VerticalAlignment="Center" Margin="{adonisUi:Space 0, 0, 1, 0}"/>
 
-                    <ToggleButton Name="darkModeSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}" IsChecked="{Binding IsDark, RelativeSource={RelativeSource FindAncestor, AncestorType=local:HotKeySet}}" Content="Dark" Checked="darkModeSwitch_Checked" Unchecked="darkModeSwitch_Unchecked"/>
+                    <ToggleButton x:Name="darkModeSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}" IsChecked="{Binding IsDark, RelativeSource={RelativeSource FindAncestor, AncestorType=local:HotKeySet}}" Content="Dark" Checked="darkModeSwitch_Checked" Unchecked="darkModeSwitch_Unchecked"/>
 
                 </StackPanel>
 
@@ -92,17 +92,17 @@
 
         <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Grid.Column="0" Margin="0,0,0,10">
             <TextBlock Text="BOOT ON STARTUP" Style="{StaticResource NavigationGroupHeaderStyle}" HorizontalAlignment="Center" Padding="{adonisUi:Space 3, 1, 2, 1}" FontSize="11"/>
-            
+
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 
                 <TextBlock Text="Off" VerticalAlignment="Center" Margin="{adonisUi:Space 0, 0, 1, 0}"/>
 
-                <ToggleButton Name="bootOnStartupSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}" Checked="bootOnStartupSwitch_Checked" Unchecked="bootOnStartupSwitch_Unchecked" Content="On"/>
+                <ToggleButton x:Name="bootOnStartupSwitch" Style="{DynamicResource {x:Static adonisUi:Styles.ToggleSwitch}}" Checked="bootOnStartupSwitch_Checked" Unchecked="bootOnStartupSwitch_Unchecked" Content="On"/>
 
             </StackPanel>
         </StackPanel>
-        
-        
+
+
         <StackPanel Grid.Column="1">
             <Border Height="{Binding Path=TitleBarActualHeight, RelativeSource={RelativeSource AncestorType={x:Type adonisControls:AdonisWindow}}}" />
         </StackPanel>

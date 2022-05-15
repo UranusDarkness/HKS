@@ -13,6 +13,12 @@ using System.ComponentModel;
 using SpotifyAPI.Web.Auth;
 using AutoUpdaterDotNET;
 using System.Windows.Controls.Primitives;
+using System.Net;
+using SpotifyVolumeManager.Properties;
+using System.Diagnostics;
+using System.Windows.Forms.VisualStyles;
+using System.Runtime.InteropServices;
+using System.Windows.Interop;
 
 namespace SpotifyVolumeManager
 {
@@ -31,13 +37,23 @@ namespace SpotifyVolumeManager
         TypeConverter converterKeys = TypeDescriptor.GetConverter(typeof(Forms.Keys));
         TypeConverter converterMods = TypeDescriptor.GetConverter(typeof(KeyModifiers));
         private static EmbedIOAuthServer _server;
-
+        private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
+        
         public App()
         {
             _notifyIcon = new Forms.NotifyIcon();
             //spotify = new SpotifyClient(OAuth_Token);
             doStuff();   
         }
+
+        /*public void CheckUpdateAtStartup()
+        {
+            Application.Current.Dispatcher.Invoke((Action)delegate{
+                
+            });
+            
+        }*/
+
         public void doStuff()
         {
             /*System.Configuration.Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -115,8 +131,84 @@ namespace SpotifyVolumeManager
                
                 HotKeyManager.HotKeyPressed += new EventHandler<HotKeyEventArgs>(HotKeyManager_HotKeyPressed);
             }*/
-            
+
         }
+        private void AutoUpdaterOnCheckForUpdateEvent(UpdateInfoEventArgs args)
+        {
+            if (args.Error == null)
+            {
+                if (args.IsUpdateAvailable)
+                {
+                    Forms.DialogResult dialogResult;
+                    if (args.Mandatory.Value)
+                    {
+                        dialogResult =
+                            Forms.MessageBox.Show(
+                                $@"There is new version {args.CurrentVersion} available. You are using version {args.InstalledVersion}. This is required update. Press Ok to begin updating the application.", @"Update Available",
+                                Forms.MessageBoxButtons.OK,
+                                Forms.MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        dialogResult =
+                            Forms.MessageBox.Show(
+                                $@"There is new version {args.CurrentVersion} available. You are using version {
+                                        args.InstalledVersion
+                                    }. Do you want to update the application now?", @"Update Available",
+                                Forms.MessageBoxButtons.YesNo,
+                                Forms.MessageBoxIcon.Information);
+                    }
+
+                    // Uncomment the following line if you want to show standard update dialog instead.
+                    //AutoUpdater.ShowUpdateForm(args);
+
+                    if (dialogResult.Equals(Forms.DialogResult.Yes) || dialogResult.Equals(Forms.DialogResult.OK))
+                    {
+                        try
+                        {
+                            if (Models.AutoUpdater.DownloadUpdate(args))
+                            {
+                                AutoUpdateWindow autoUpdateWindow = new AutoUpdateWindow();
+                                autoUpdateWindow.Show();
+                            }
+
+                        }
+                        catch (Exception exception)
+                        {
+                            Forms.MessageBox.Show(exception.Message, exception.GetType().ToString(), Forms.MessageBoxButtons.OK,
+                                Forms.MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                else
+                {
+                    /*Forms.MessageBox.Show(@"There is no update available please try again later.", @"No update available",
+                        Forms.MessageBoxButtons.OK, Forms.MessageBoxIcon.Information);*/
+                }
+            }
+            else
+            {
+                if (args.Error is WebException)
+                {
+                    Forms.MessageBox.Show(
+                        @"There is a problem reaching update server. Please check your internet connection and try again later.",
+                        @"Update Check Failed", Forms.MessageBoxButtons.OK, Forms.MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Forms.MessageBox.Show(args.Error.Message,
+                        args.Error.GetType().ToString(), Forms.MessageBoxButtons.OK,
+                        Forms.MessageBoxIcon.Error);
+                }
+            }
+            Models.AutoUpdater.CheckForUpdateEvent -= AutoUpdaterOnCheckForUpdateEvent;
+        }
+
+
+
+
+
+
         void HotKeyManager_HotKeyPressed(object sender, HotKeyEventArgs e)
         {
             System.Configuration.Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -164,30 +256,10 @@ namespace SpotifyVolumeManager
                 spotify.Player.SetVolume(new PlayerVolumeRequest(newvol));
             }
         }
-        protected override void OnStartup(StartupEventArgs e)
+        /*protected override void OnStartup(StartupEventArgs e)
         {
-            Assembly myAss = Assembly.GetExecutingAssembly();
-            Stream myStre = myAss.GetManifestResourceStream(myAss.GetName().Name + ".Resources.img.spotifyVolumeManagerLogo.ico");
-            _notifyIcon.Icon = new System.Drawing.Icon(myStre);
-            _notifyIcon.Text = "Spotify Volume Manager";
-
-            _notifyIcon.ContextMenuStrip = new Forms.ContextMenuStrip();
-            _notifyIcon.ContextMenuStrip.Items.Add("Login", null, OnLoginClicked);
-            _notifyIcon.ContextMenuStrip.Items.Add("Settings", null, OnKeybindsClicked);
-            _notifyIcon.ContextMenuStrip.Items.Add("Exit", null, OnExitClicked);
-            _notifyIcon.Visible = true;
-
-            base.OnStartup(e);
-
-            /*code behind to check if auto update is enabled
-             * 
-            System.Configuration.Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            if(configuration.AppSettings.Settings["autoUpdate"].Value == "True")
-                MessageBox.Show(configuration.AppSettings.Settings["autoUpdate"].Value, "Enabled auto update", MessageBoxButton.OK, MessageBoxImage.Information);
-            else
-                MessageBox.Show(configuration.AppSettings.Settings["autoUpdate"].Value, "Disabled auto update", MessageBoxButton.OK, MessageBoxImage.Warning);
-            */
-        }
+            
+        }*/
 
         private async void OnLoginClicked(object sender, EventArgs e)
         {
@@ -233,15 +305,13 @@ namespace SpotifyVolumeManager
             await _server.Stop();
         }
 
-
-
-
         private void OnKeybindsClicked(object sender, EventArgs e)
         {
             /*KeyBindsSetter keyBindsSetter = new KeyBindsSetter(this, volume_down_id, volume_up_id);
             keyBindsSetter.Show();*/
             HotKeySet hotKeySet = new HotKeySet();
             hotKeySet.Show();
+            
         }
 
         private void OnExitClicked(object sender, EventArgs e)
@@ -256,6 +326,25 @@ namespace SpotifyVolumeManager
             _notifyIcon.Dispose();
             base.OnExit(e);
         }
-       
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            Models.AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
+            if (defaultInstance.autoUpdate.Equals("True"))
+                Models.AutoUpdater.Start("https://raw.githubusercontent.com/UranusDarkness/HKS/gh-pages/src/autoUpdate.xml");
+
+            Assembly myAss = Assembly.GetExecutingAssembly();
+            Stream myStre = myAss.GetManifestResourceStream(myAss.GetName().Name + ".Resources.img.spotifyVolumeManagerLogo.ico");
+            _notifyIcon.Icon = new System.Drawing.Icon(myStre);
+            _notifyIcon.Text = "Spotify Volume Manager";
+
+            _notifyIcon.ContextMenuStrip = new Forms.ContextMenuStrip();
+            _notifyIcon.ContextMenuStrip.Items.Add("Login", null, OnLoginClicked);
+            _notifyIcon.ContextMenuStrip.Items.Add("Settings", null, OnKeybindsClicked);
+            _notifyIcon.ContextMenuStrip.Items.Add("Exit", null, OnExitClicked);
+            _notifyIcon.Visible = true;
+
+            //base.OnStartup(e);
+        }
     }
 }

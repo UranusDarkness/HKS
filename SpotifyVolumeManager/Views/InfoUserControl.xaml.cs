@@ -46,8 +46,7 @@ namespace SpotifyVolumeManager.Views
                 }
                 catch (Exception)
                 {
-
-                    throw;
+                    
                 }
                 
             }

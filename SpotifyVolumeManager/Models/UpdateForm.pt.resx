@@ -117,25 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DownloadSpeedMessage" xml:space="preserve">
-    <value>Downloading at {0}/s</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>{0} {1} está disponível!</value>
   </data>
-  <data name="FileIntegrityCheckFailedMessage" xml:space="preserve">
-    <value>File integrity check failed and reported some errors.</value>
+  <data name="buttonRemindLater.Text" xml:space="preserve">
+    <value>Lembrar-me mais tarde</value>
   </data>
-  <data name="HashAlgorithmNotSupportedMessage" xml:space="preserve">
-    <value>Hash algorithm provided in the XML file is not supported.</value>
+  <data name="buttonSkip.Text" xml:space="preserve">
+    <value>Ignorar esta versão</value>
   </data>
-  <data name="UpdateCheckFailedCaption" xml:space="preserve">
-    <value>Update Check Failed</value>
+  <data name="buttonUpdate.Text" xml:space="preserve">
+    <value>Atualizar</value>
   </data>
-  <data name="UpdateCheckFailedMessage" xml:space="preserve">
-    <value>There is a problem reaching update server. Please check your internet connection and try again later.</value>
+  <data name="labelDescription.Text" xml:space="preserve">
+    <value>{0} {1} está disponível. A versão instalada é a {2}. Deseja atualizar agora?</value>
   </data>
-  <data name="UpdateUnavailableCaption" xml:space="preserve">
-    <value>Update Unavailable</value>
+  <data name="labelReleaseNotes.Text" xml:space="preserve">
+    <value>Notas sobre a versão</value>
   </data>
-  <data name="UpdateUnavailableMessage" xml:space="preserve">
-    <value>There is no update available. Please try again later.</value>
+  <data name="labelUpdate.Text" xml:space="preserve">
+    <value>Está disponível uma nova versão do {0}!</value>
   </data>
 </root>

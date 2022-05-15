@@ -22,6 +22,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AutoUpdaterDotNET;
+using SpotifyVolumeManager.Models;
 using Forms = System.Windows.Forms;
 
 namespace SpotifyVolumeManager.Views
@@ -29,11 +30,13 @@ namespace SpotifyVolumeManager.Views
     /// <summary>
     /// Logica di interazione per UpdatesUserControl.xaml
     /// </summary>
-    public partial class UpdatesUserControl : UserControl
+    public partial class UpdatesUserControl : UserControl, Models.IProgressBarChangeListener
     {
         public UpdatesUserControl()
         {
             InitializeComponent();
+            Models.AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
+            AutoUpdaterDotNET.DownloadUpdateDialog.AddListener(this);
         }
 
         private void updatesUserControl_Loaded(object sender, RoutedEventArgs e)
@@ -58,9 +61,8 @@ namespace SpotifyVolumeManager.Views
         }
 
         private void checkUpdatesButton_Click(object sender, RoutedEventArgs e)
-        {
-            AutoUpdater.CheckForUpdateEvent += AutoUpdaterOnCheckForUpdateEvent;
-            AutoUpdater.Start("https://raw.githubusercontent.com/UranusDarkness/HKS/gh-pages/src/autoUpdate.xml");
+        { 
+            Models.AutoUpdater.Start("https://raw.githubusercontent.com/UranusDarkness/HKS/gh-pages/src/autoUpdate.xml");
         }
 
         private void AutoUpdaterOnCheckForUpdateEvent(UpdateInfoEventArgs args)
@@ -96,9 +98,9 @@ namespace SpotifyVolumeManager.Views
                     {
                         try
                         {
-                            if (AutoUpdater.DownloadUpdate(args))
+                            if (Models.AutoUpdater.DownloadUpdate(args))
                             {
-                                Forms.Application.Exit();
+                                
                             }
 
                         }
@@ -130,17 +132,17 @@ namespace SpotifyVolumeManager.Views
                         Forms.MessageBoxIcon.Error);
                 }
             }
+            
         }
 
+        public void ProgressBarChange(int progress)
+        {
+            updateProgressBar.Value = progress;
+        }
 
-
-
-
-        
-
-
-
-
-
+        public void DownloadCompleted()
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
     }
 }

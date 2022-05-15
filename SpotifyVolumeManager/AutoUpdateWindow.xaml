@@ -1,0 +1,31 @@
+﻿<adonisControls:AdonisWindow x:Class="SpotifyVolumeManager.AutoUpdateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+        xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+        xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
+        xmlns:local="clr-namespace:SpotifyVolumeManager"
+        mc:Ignorable="d"
+        Title="Auto-Update" Height="225" Width="400" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style x:Key="NavigationGroupHeaderStyle"
+                   TargetType="TextBlock">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static adonisUi:Brushes.ForegroundBrush}}"/>
+                <Setter Property="FontWeight" Value="DemiBold"/>
+                <Setter Property="FontSize" Value="11"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Grid>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Downloading update..." HorizontalAlignment="Center" Style="{StaticResource NavigationGroupHeaderStyle}" FontSize="15"/>
+            <ProgressBar Name="updateProgressBar"  Width="240" Height="24" Minimum="0" Maximum="100" Value="0" Margin="0,20,0,0" adonisExtensions:ProgressBarExtension.Content=""/>
+        </StackPanel>
+        
+    </Grid>
+</adonisControls:AdonisWindow>

@@ -59,5 +59,68 @@ namespace SpotifyVolumeManager.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Downloading at {0}/s.
+        /// </summary>
+        internal static string DownloadSpeedMessage {
+            get {
+                return ResourceManager.GetString("DownloadSpeedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a File integrity check failed and reported some errors..
+        /// </summary>
+        internal static string FileIntegrityCheckFailedMessage {
+            get {
+                return ResourceManager.GetString("FileIntegrityCheckFailedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Hash algorithm provided in the XML file is not supported..
+        /// </summary>
+        internal static string HashAlgorithmNotSupportedMessage {
+            get {
+                return ResourceManager.GetString("HashAlgorithmNotSupportedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Update Check Failed.
+        /// </summary>
+        internal static string UpdateCheckFailedCaption {
+            get {
+                return ResourceManager.GetString("UpdateCheckFailedCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a There is a problem reaching update server. Please check your internet connection and try again later..
+        /// </summary>
+        internal static string UpdateCheckFailedMessage {
+            get {
+                return ResourceManager.GetString("UpdateCheckFailedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a Update Unavailable.
+        /// </summary>
+        internal static string UpdateUnavailableCaption {
+            get {
+                return ResourceManager.GetString("UpdateUnavailableCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una stringa localizzata simile a There is no update available. Please try again later..
+        /// </summary>
+        internal static string UpdateUnavailableMessage {
+            get {
+                return ResourceManager.GetString("UpdateUnavailableMessage", resourceCulture);
+            }
+        }
     }
 }

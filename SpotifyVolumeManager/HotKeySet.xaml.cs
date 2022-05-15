@@ -16,6 +16,8 @@ using IWshRuntimeLibrary;
 using Forms = System.Windows.Forms;
 using AutoUpdaterDotNET;
 using System.Reflection;
+using System.Net;
+using System.Diagnostics;
 
 namespace SpotifyVolumeManager
 {
@@ -73,9 +75,12 @@ namespace SpotifyVolumeManager
             string filePath = Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + Forms.Application.ProductName +".lnk";
             if (System.IO.File.Exists(filePath))
                 bootOnStartupSwitch.IsChecked = true;
+
             if (Properties.Settings.Default.colorMode.Equals("Dark"))
                 darkModeSwitch.IsChecked = true;
         }
+
+
 
         private void darkModeSwitch_Checked(object sender, RoutedEventArgs e)
         {
